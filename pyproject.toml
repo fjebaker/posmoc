@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "pint-of-science"
+version = "0.1.0"
+description = ""
+authors = ["fjebaker <fergusbkr@gmail.com>"]
+readme = "README.md"
+packages = [{include = "pint_of_science"}]
+
+[tool.poetry.dependencies]
+python = "<3.11,>=3.8"
+openai = "^0.27.2"
+TTS = "^0.11.1"
+pydub = "^0.25.1"
+sounddevice = "^0.4.6"
+speechrecognition = "^3.10.0"
+pyaudio = "^0.2.13"
+nltk = "^3.8.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
