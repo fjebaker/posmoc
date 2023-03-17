@@ -1,7 +1,7 @@
 import asyncio
-import posm
+import posmoc
 
-speaker = posm.Speaker()
+speaker = posmoc.Speaker()
 
 loop = asyncio.get_event_loop()
 try:
