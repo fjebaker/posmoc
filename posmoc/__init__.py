@@ -1,5 +1,5 @@
 import logging
-from posm.speaker import Speaker
+from posmoc.speaker import Speaker
 
 # create and configure main logger
 logger = logging.getLogger(__name__)

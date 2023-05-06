@@ -31,7 +31,6 @@ class Speaker:
         self.speaker = 2
         self.language = "en"
         self.speech = speech_recognition.Recognizer()
-        self.audio = pyaudio.PyAudio()
         self.history = [
             {
                 "role": "system",
@@ -49,8 +48,9 @@ class Speaker:
         return self.outfile
 
     def speak_from_file(self, file: str, chunk: int = 1024):
+        audio = pyaudio.PyAudio()
         with wave.open(file, "rb") as f:
-            stream = self.audio.open(
+            stream = audio.open(
                 format=self.audio.get_format_from_width(f.getsampwidth()),
                 channels=f.getnchannels(),
                 rate=f.getframerate(),
