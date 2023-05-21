@@ -1,23 +1,29 @@
 [tool.poetry]
-name = "pint-of-science"
+name = "posmoc"
 version = "0.1.0"
 description = ""
 authors = ["fjebaker <fergusbkr@gmail.com>"]
 readme = "README.md"
-packages = [{include = "pint_of_science"}]
 
 [tool.poetry.dependencies]
-python = "<3.11,>=3.8"
-openai = "^0.27.2"
-TTS = "^0.11.1"
+python = ">=3.10,<3.11"
+scipy = "^1.10.1"
+pylint = "^2.17.4"
+tts = "^0.14.0"
+openai = "^0.27.7"
 pydub = "^0.25.1"
-sounddevice = "^0.4.6"
-speechrecognition = "^3.10.0"
-pyaudio = "^0.2.13"
 nltk = "^3.8.1"
+pyaudio = "^0.2.13"
+speechrecognition = "^3.10.0"
+gpt4all = "^0.2.3"
+pyserial = "^3.5"
+crc = "^4.2.0"
+
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.1.0"
+black = "^23.3.0"
+matplotlib = "^3.7.1"
+ipython = "^8.13.2"
 
 [build-system]
 requires = ["poetry-core"]
