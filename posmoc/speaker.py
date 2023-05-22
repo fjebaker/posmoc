@@ -13,11 +13,12 @@ logger = logging.getLogger(__name__)
 
 class Speaker:
     def __init__(self):
-        # self.ai = GPT4All()
-        self.ai = OpenAI()
+        self.ai = GPT4All()
+        # self.ai = OpenAI()
         self.audio = Audio()
         self.listener = SpeechRecognition()
         self.head = HeadControl(sys.argv[1])
+        self.idling = False
 
     async def respond_to_prompt(self, prompt: str):
         loop = asyncio.get_event_loop()
@@ -45,9 +46,15 @@ class Speaker:
             await self.audio.speak("Please speak again.", self.head)
         self.audio.random_speaker()
 
+    async def startidle(self):
+        if self.idling == False:
+            loop = asyncio.get_event_loop()
+            loop.create_task(self.head.start_idle())
+            self.idling = True
+
     async def converse_loop(self):
-        loop = asyncio.get_event_loop()
-        loop.create_task(self.head.start_idle())
+        
+
         await self.audio.speak("I am now ready to talk.", self.head)
 
         while True:

@@ -31,7 +31,7 @@ class AudioProcessor:
     def callback(self, i):
         if i % 4 == 0:
             mean = self.means[i]
-            jaw = int(150 * (mean / self.max))
+            jaw = int(190 * (mean / self.max))
             self.control.write(jaw=jaw)
 
 

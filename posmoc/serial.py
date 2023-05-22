@@ -63,20 +63,18 @@ class HeadControl:
     async def start_idle(self):
         while True:
             logger.debug("idling...")
-            await asyncio.sleep(random.random() * 8.0 + 3.0)
+            await asyncio.sleep(random.random() * 2.0 + 3.0)
 
             if self.speaking:
                 # if we're speaking we just update values
-                le = self.values["lefteye"]
-                re = self.values["righteye"]
-
                 self.values["lefteye"] = 0
                 self.values["righteye"] = 0
 
                 await asyncio.sleep(0.11)
-
-                self.values["lefteye"] = le
-                self.values["righteye"] = re
+                
+                # always blue i suppose
+                self.values["lefteye"] = 0b100
+                self.values["righteye"] = 0b100
             else:
                 self._write_from_kwargs(lefteye=0, righteye=0)
                 time.sleep(0.1)
