@@ -1,3 +1,5 @@
+import logging
+
 import asyncio
 import posmoc
 
@@ -14,14 +16,14 @@ def script(speaker, file):
 
 
 if __name__ == "__main__":
-    # speaker = posmoc.Speaker()
+    speaker = posmoc.Speaker()
     print("SETUP COMPLETE\n\n")
-
-    print("1: introduction")
-    print("2: nathan")
-    print("3: robbie")
-
     while True:
+        print("1: introduction")
+        print("2: nathan")
+        print("3: robbie")
+        print("4: safety")
+
         inp = input("select > ")
 
         try:
@@ -29,11 +31,11 @@ if __name__ == "__main__":
         except:
             print("Bad input")
         else:
-            break
-
-    if inp == 1:
-        script(speaker, "ai-ml/introduction.txt")
-    elif inp == 2:
-        script(speaker, "ai-ml/introduction.txt")
-    elif inp == 3:
-        script(speaker, "ai-ml/robbie.txt")
+            if inp == 1:
+                script(speaker, "ai-ml/introduction.txt")
+            elif inp == 2:
+                script(speaker, "ai-ml/nathan.txt")
+            elif inp == 3:
+                script(speaker, "ai-ml/robbie.txt")
+            elif inp == 4:
+                script(speaker, "ai-ml/safety.txt")

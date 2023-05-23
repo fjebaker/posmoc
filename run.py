@@ -1,5 +1,8 @@
+import logging
+
 import asyncio
 import posmoc
+
 
 speaker = posmoc.Speaker()
 

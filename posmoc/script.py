@@ -56,8 +56,25 @@ class Action:
     async def _rolleyes(self):
         ...
 
+    async def _eyecolor(self):
+        color  = self.action_args[0]
+        if color  == "red":
+            c = 0b001
+        elif color  == "blue":
+            c = 0b100
+        else:
+            c = 0b010
+        self.speaker.head.write(lefteye = c, righteye = c)
+
     async def _eyes(self):
-        ...
+        direction = self.action_args[0]
+        if direction == "left":
+            angle = 0
+        elif direction == "middle":
+            angle = 50
+        else:
+            angle = 100
+        self.speaker.head.write(eyepan = angle)
 
     async def _turnhead(self):
         direction = self.action_args[0]
@@ -83,6 +100,8 @@ class Action:
         await self.action(self)
         if self.text:
             await self.speaktext()
+            # random next voice
+            self.speaker.audio.random_speaker()
 
 
 def parse_script(text):
