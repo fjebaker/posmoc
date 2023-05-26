@@ -102,7 +102,8 @@ class OpenAI(_AI):
         self.history.append(
             {
                 "role": "system",
-                "content": "Keep your replies short. You are the master of ceremonies, who is eloquent, funny, and charasmatic. Begin each response with one of the following: 1. happy, 2. angry, 3. normal, 4. shake head, 5. roll eyes. Put the number is brackets before each response.",
+                # "content": "Keep your replies short. You are the master of ceremonies, who is eloquent, funny, and charasmatic. Begin each response with one of the following: 1. happy, 2. angry, 3. normal, 4. shake head, 5. roll eyes. Put the number is brackets before each response.",
+                "content": "You are Al Capone. Respond in character, using phrases relevant to the 1920s."
             }
         )
 
@@ -117,7 +118,7 @@ class OpenAI(_AI):
             return "(4) I am not currently available to talk."
         return "".join(message)
 
-    async def _stream_response(self, messages, max_tokens=40):
+    async def _stream_response(self, messages, max_tokens=100):
         response = await openai.ChatCompletion.acreate(
             model="gpt-3.5-turbo",
             messages=messages,

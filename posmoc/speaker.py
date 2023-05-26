@@ -13,8 +13,8 @@ logger = logging.getLogger(__name__)
 
 class Speaker:
     def __init__(self):
-        self.ai = GPT4All()
-        #self.ai = OpenAI()
+        #self.ai = GPT4All()
+        self.ai = OpenAI()
         self.audio = Audio()
         self.listener = SpeechRecognition()
         self.head = HeadControl(sys.argv[1])
